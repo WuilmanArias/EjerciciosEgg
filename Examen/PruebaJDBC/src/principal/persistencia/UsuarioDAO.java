@@ -17,6 +17,7 @@ public final class UsuarioDAO extends DAO {
             }
         // INSERT INTO usuario VALUES ('789', 'Teresa', 'tere@gmail.com','16');
             String sql = "INSERT INTO usuario VALUES ('" + usuario.getClave() +"','"+ usuario.getNombre() +"','"+ usuario.getCorreoElectronico() + "','" + usuario.getEdad() + "' );";
+            insertarModificarEliminar(sql);
         } catch (Exception e) {
             throw e;
         }

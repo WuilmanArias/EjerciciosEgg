@@ -1,3 +1,6 @@
+// los servicios validan datos y manejan lalogica delnegocio
+// Siempre Main al => servicio
+
 
 package principal.dominio.usuario;
 import principal.persistencia.UsuarioDAO;
@@ -32,8 +35,10 @@ public class UsuarioServicio {
             
             //Creamos el usuario
             Usuario usuario= new Usuario();
-            usuario.setCorreoElectronico(correoElectronico);
             usuario.setClave(clave);
+            usuario.setNombre(nombre);
+            usuario.setCorreoElectronico(correoElectronico);
+            usuario.setEdad(edad);
             dao.guardarUsuario(usuario);
         } catch (Exception e) {
             throw e;
