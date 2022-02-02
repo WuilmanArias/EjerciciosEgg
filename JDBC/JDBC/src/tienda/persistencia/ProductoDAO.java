@@ -7,6 +7,8 @@ package tienda.persistencia;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 import tienda.entidades.Fabricante;
 import tienda.entidades.Producto;
 import tienda.servicios.FabricanteServicio;
@@ -31,6 +33,7 @@ public final class ProductoDAO extends DAO {
             //INSERT INTO producto VALUES(1, 'Disco duro SATA3 1TB', 86.99, 5);
             String sql = "INSERT INTO producto VALUES ("
                     + producto.getCodigo() + ",'" + producto.getNombre() + "'," + producto.getPrecio() + "," + producto.getFabricante()+ ");";
+            
         } catch (Exception e) {
             throw e;
         }
@@ -104,15 +107,21 @@ public final class ProductoDAO extends DAO {
    public Collection<Producto> listarProductoEntreDosValores(double num1,double num2) throws Exception {
         try {
             //SELECT * FROM PRODUCTO WHERE PRECIO BETWEEN 60 AND 200;
-            String sql = "SELECT nombre,precio FROM producto WHERE PRECIO BETWEEN "+num1+" AND "+num2+";";
+            String sql = "SELECT * FROM producto WHERE PRECIO BETWEEN "+num1+" AND "+num2+";";
             ConsultarBase(sql);
             Producto producto = null;
             Collection<Producto> productos = new ArrayList();
             while (resultado.next()) {
                 producto = new Producto();
-                producto.setNombre(resultado.getString(1));
-                producto.setPrecio(resultado.getDouble(2));
+                producto.setCodigo(1);
+                producto.setNombre(resultado.getString(2));
+                producto.setPrecio(resultado.getDouble(3));
+                Integer codigoFabricante=(resultado.getInt(4));
+                
+                Fabricante f= fabricanteServicio.buscarFabricantePorcodigo(codigoFabricante);
+                producto.setFabricante(f);
                 productos.add(producto);
+                
             }
             desconectarBase();
             return productos;
@@ -123,4 +132,25 @@ public final class ProductoDAO extends DAO {
             throw new Exception("Error del sistema");
         }
     }
+   
+   public Map<String, Integer> listarProductosQueTenganFabricantes() throws Exception {
+        
+        Map<String, Integer> map = new HashMap();
+        
+        try {
+            
+            String sql = "SELECT f.nombre, COUNT(*) FROM productos p INNER JOIN fabricante f ON p.codigo_fabricate = f.codigo";
+            
+           ConsultarBase(sql);
+            
+            while (resultado.next()) map.put(resultado.getString(1), resultado.getInt(2));
+            
+            return map;
+            
+        } catch (Exception e) {
+            throw e;
+        }
+        
+    }
+
 }

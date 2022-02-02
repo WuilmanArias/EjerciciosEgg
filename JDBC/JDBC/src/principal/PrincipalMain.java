@@ -11,24 +11,25 @@ public class PrincipalMain {
 
     public static void main(String[] args) {
         int opc = 0;
-        Scanner leer=new Scanner(System.in);
+        Scanner leer = new Scanner(System.in);
         ProductoDAO pDAO = new ProductoDAO();
         do {
             System.out.println("");
             System.out.println("Indique una opcion");
             System.out.println("1.- Listar Todos Los Productos");
             System.out.println("2.- Listar solo los nombre y los precios de todos Los Productos");
+            System.out.println("3.- Listar aquellos productos que su precio esté entre 120 y 202");
             System.out.println("5.- Salir");
-            opc=leer.nextInt();
+            opc = leer.nextInt();
             switch (opc) {
                 case 1:
-
+                    //****LISTAR TODOS LOS PRODUCTOS************
                     try {
                         System.out.println("****Listar Todos Los Productos***********");
                         Collection<Producto> lista = pDAO.listarTodosLosProductos();
-                        System.out.printf("%3s%15s%27s%19s%n", "CODIGO","PRODUCTO", "PRECIO", "FABRICANTE" );
+                        System.out.printf("%3s%15s%27s%19s%n", "CODIGO", "PRODUCTO", "PRECIO", "FABRICANTE");
                         for (Producto producto : lista) {
-                            System.out.printf("%-8s%-35s%-15s%-15s%n",producto.getCodigo(),producto.getNombre(),producto.getPrecio(),producto.getFabricante().getNombre());
+                            System.out.printf("%-8s%-35s%-15s%-15s%n", producto.getCodigo(), producto.getNombre(), producto.getPrecio(), producto.getFabricante().getNombre());
 
                         }
                     } catch (Exception e) {
@@ -37,7 +38,7 @@ public class PrincipalMain {
                     }
                     break;
                 case 2:
-
+                    //****2.-Listar solo los nombre y los precios de todos Los Productos*****
                     try {
                         System.out.println("");
                         System.out.println("****Listar los nombre y los precios de todos Los Productos***********");
@@ -53,8 +54,24 @@ public class PrincipalMain {
                     }
                     break;
                 case 3:
-                    opc = 5;
+                    //****3.-Listar aquellos productos que su precio esté entre 120 y 202*****
+                    try {
+                        System.out.println("");
+                        System.out.println("****Listar los productos entre dos valores***********");
+                        Collection<Producto> lista = pDAO.listarProductoEntreDosValores(120, 200);
+                        System.out.printf("%3s%15s%27s%19s%n", "CODIGO", "PRODUCTO", "PRECIO", "FABRICANTE");
+                        for (Producto producto : lista) {
+                            System.out.printf("%-8s%-35s%-15s%-15s%n", producto.getCodigo(), producto.getNombre(), producto.getPrecio(), producto.getFabricante().getNombre());
 
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        System.out.println("ERROR: " + e.getMessage());
+                    }
+                    break;
+                case 4:
+                    opc = 5;
+                    break;
             }
         } while (opc != 5);
 
