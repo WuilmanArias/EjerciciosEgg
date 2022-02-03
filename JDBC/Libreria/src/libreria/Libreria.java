@@ -1,21 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package libreria;
 
-/**
- *
- * @author ana
- */
+import libreria.entidades.Autor;
+import libreria.persistencia.AutorDAO;
+import libreria.sevicios.AutorServicio;
+
 public class Libreria {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+
+        AutorServicio autorServicio = new AutorServicio();
+        //Autor autor = new Autor("Pedro Perez", true);
+        autorServicio.crear("Andre Alejandro Arias");
+   
+        
     }
-    
+
 }

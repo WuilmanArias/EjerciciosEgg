@@ -25,7 +25,7 @@ public class Autor implements Serializable {
     private String nombre;
     private Boolean alta;
 
-    public Autor(String id, String nombre, Boolean alta) {
+    public Autor(String nombre, Boolean alta) {
         this.id = id;
         this.nombre = nombre;
         this.alta = alta;

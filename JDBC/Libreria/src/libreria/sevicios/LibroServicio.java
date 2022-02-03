@@ -20,7 +20,7 @@ public class LibroServicio {
     }
 
     public void crear(String titulo, Integer anio, Integer ejemplares, Integer ejemplaresPrestados,
-            Integer ejemplaresRestantes, Boolean alta, Autor autor, Editorial editorial)  {
+            Integer ejemplaresRestantes, Boolean alta, String autorAux, String editorialAux)  {
         Libro libro = new Libro();
         libro.setTitulo(titulo);
         libro.setAnio(anio);
@@ -29,9 +29,11 @@ public class LibroServicio {
         libro.setEjemplaresRestantes(ejemplaresRestantes);
         libro.setAlta(alta);
         try {
-            AutorDAO aut=new AutorDAO();
-            EditorialDAO edi=new EditorialDAO();
-            if ((aut.buscarPorId(autor.getId())!= null) ||(edi.buscarPorId(editorial.getId())!= null)) {
+            AutorDAO autDao=new AutorDAO();
+            EditorialDAO ediDao=new EditorialDAO();
+            
+            if ((autDao.buscarPorId(autorAux)!= null) ||(ediDao.buscarPorId(editorialAux)!= null)) {
+                
                 libro.setAutor(autor);
                 libro.setEditorial(editorial);
             }
