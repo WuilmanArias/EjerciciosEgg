@@ -31,8 +31,8 @@ public class Libro implements Serializable {
     @ManyToOne
     private Editorial editorial;
 
-    public Libro(String id, String titulo, Integer anio, Integer ejemplares, Integer ejemplaresPrestados, Integer ejemplaresRestantes, Boolean alta, Autor autor, Editorial editorial) {
-        this.id = id;
+    public Libro(String titulo, Integer anio, Integer ejemplares, Integer ejemplaresPrestados, Integer ejemplaresRestantes, Boolean alta, Autor autor, Editorial editorial) {
+        //this.id = id;
         this.titulo = titulo;
         this.anio = anio;
         this.ejemplares = ejemplares;

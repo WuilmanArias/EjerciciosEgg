@@ -1,12 +1,12 @@
+package jpa.persistencia;
 
-package libreria.persistencia;
-
+import java.util.ArrayList;
 import java.util.List;
-import libreria.entidades.Autor;
+import jpa.entidades.Usuario;
 
-public class AutorDAO extends DAO{
-    
-    public void guardar (Autor objeto){
+public class UsuarioDAO extends DAO{
+
+    public void guardar(Usuario objeto){
         conectar();
         em.getTransaction().begin();
         em.persist(objeto);
@@ -14,31 +14,30 @@ public class AutorDAO extends DAO{
         desconectar();
     }
     
-    public Autor modificar (Autor objeto){
+    public Usuario editar(Usuario objeto){
         conectar();
         em.getTransaction().begin();
-        Autor u= em.merge(objeto);
+        Usuario u = em.merge(objeto);
         em.getTransaction().commit();
         desconectar();
         return u;
     }
     
-    public void eliminar (Autor objeto){
+    public void eliminar(Usuario objeto){
         conectar();
         em.getTransaction().begin();
         em.remove(objeto);
         em.getTransaction().commit();
         desconectar();
     }
-    
-    public Autor buscarPorId(String id){
-        return em.find(Autor.class, id);
+
+    public Usuario buscarPorId(String id) {
+        return em.find(Usuario.class, id);
     }
     
-    public List<Autor> listarTodos(){
-        conectar();
-        List <Autor> usuarios= em.createQuery("SELECT u FROM Autor u").getResultList();
-         
+    public List<Usuario> listarTodos() {
+        List<Usuario> usuarios = em.createQuery("SELECT u FROM Usuario u").getResultList();
         return usuarios;
     }
+    
 }
