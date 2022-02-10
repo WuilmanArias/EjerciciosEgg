@@ -36,8 +36,20 @@ public class LibroDAO extends DAO{
     }
     
     public List<Libro> listarTodos(){
-        List <Libro> usuarios= em.createQuery("SELECT u FROM Libro u").getResultList();
-        return usuarios;
+        List <Libro> libros= em.createQuery("SELECT u FROM Libro u").getResultList();
+        return libros;
+    }
+    
+    public List<Libro> listarPorTitulo(String titulo) {
+        return em.createQuery("SELECT m FROM Libro m WHERE m.titulo LIKE :titulo")
+                .setParameter("titulo", "%" + titulo + "%")
+                .getResultList();
+    }
+    
+    public List<Libro> listarPorNombreDeAutor(String nombre) {
+        return em.createQuery("SELECT l FROM Libro l, Autor a WHERE l.autor.nombre :nombre")
+                .setParameter("nombre", "%" + nombre + "%")
+                .getResultList();
     }
     
 }

@@ -35,6 +35,12 @@ public class AutorDAO extends DAO{
         return em.find(Autor.class, id);
     }
     
+    public List<Autor> listarPorNombre(String nombre) {
+        return em.createQuery("SELECT m FROM Autor m WHERE m.nombre LIKE :nombre")
+                .setParameter("nombre", "%" + nombre + "%")
+                .getResultList();
+    }
+    
     public List<Autor> listarTodos(){
         conectar();
         List <Autor> usuarios= em.createQuery("SELECT u FROM Autor u").getResultList();

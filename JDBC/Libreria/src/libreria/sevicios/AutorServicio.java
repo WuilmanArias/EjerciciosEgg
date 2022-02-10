@@ -36,6 +36,10 @@ public class AutorServicio {
         autorDAO.eliminar(autor);
 
     }
+    
+    public List<Autor> listarPorNombre(String nombre) {
+        return autorDAO.listarPorNombre(nombre);
+    }
 
     public Autor buscarPorId(String id) {
         return autorDAO.buscarPorId(id);
