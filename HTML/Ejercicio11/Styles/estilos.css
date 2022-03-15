@@ -1,0 +1,42 @@
+.tabla2 {
+    font: .9em Arial, Helvetica, sans-serif;
+    border: 1px solid #333;
+    border-collapse: collapse;
+    text-align: center;
+  }
+
+.etiqueta{
+    text-align: center;
+    background-color:darkgrey;
+
+}
+
+.etiqueta td p{
+    font-weight: 800;
+   
+}
+
+.tabla2 , th, tr , td{
+    border: 1px solid #333;
+        
+}
+
+tr .titulo {
+    font-weight: 700;
+    background-color: #E6F3FF;
+    text-align: left;
+}
+
+.imagen{
+    width: 15px;
+    height: 5%;
+
+}
+
+.tabla2 {
+    text-align: center;
+}
+
+.fila {
+    background-color: #FFFFCC;
+}

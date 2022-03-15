@@ -37,7 +37,10 @@ public class AutorServicio {
 
     }
     
-    public List<Autor> listarPorNombre(String nombre) {
+    public List<Autor> listarPorNombre(String nombre) throws Exception {
+        if (autorDAO.listarPorNombre(nombre)==null) {
+            
+        }
         return autorDAO.listarPorNombre(nombre);
     }
 

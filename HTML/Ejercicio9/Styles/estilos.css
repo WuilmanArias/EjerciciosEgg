@@ -1,0 +1,24 @@
+li, a{
+    color: aqua;
+    background-color: green;
+    font-size: 22px;
+    text-decoration: none;
+    float: left;
+    width: 33%;
+    text-align: center;
+    padding: 20px;
+}
+
+a:hover{
+    color: green;
+    background-color: aqua;
+}
+
+div{
+    width: 100%;
+
+}
+
+ul,li{
+    display: inline-block;
+}

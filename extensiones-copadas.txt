@@ -1,0 +1,7 @@
+Extensiones copadas:
+
+- Auto Close Tag de Jun Han
+- Error Lens de Alexander
+- Live Server de Ritwick Dey
+- Material Icon Theme de Philipp Kief
+- Prettier de Prettier

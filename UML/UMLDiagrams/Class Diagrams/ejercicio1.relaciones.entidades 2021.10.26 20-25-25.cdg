@@ -38,7 +38,7 @@
         <Method name="toString" returnType="String" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Persona" package="ejercicio1.relaciones.entidades" visibility="public" xPosition="206.0" yPosition="52.0">
+    <Class name="Persona" package="ejercicio1.relaciones.entidades" visibility="public" xPosition="572.0" yPosition="52.0">
       <Fields>
         <Field name="nombre" type="String" visibility="private"/>
         <Field name="apellido" type="String" visibility="private"/>
@@ -82,7 +82,7 @@
     </Class>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <HasRelation name="perro" source="ejercicio1.relaciones.entidades.Persona" target="ejercicio1.relaciones.entidades.Perro" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
     <UseRelation source="ejercicio1.relaciones.entidades.Persona" target="ejercicio1.relaciones.entidades.Perro" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="perro" source="ejercicio1.relaciones.entidades.Persona" target="ejercicio1.relaciones.entidades.Perro" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
   </ClassDiagramRelations>
 </ClassDiagram>

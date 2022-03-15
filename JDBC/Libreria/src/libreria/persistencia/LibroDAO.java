@@ -47,7 +47,7 @@ public class LibroDAO extends DAO{
     }
     
     public List<Libro> listarPorNombreDeAutor(String nombre) {
-        return em.createQuery("SELECT l FROM Libro l, Autor a WHERE l.autor.nombre :nombre")
+        return em.createQuery("SELECT l FROM Libro l  WHERE l.autor.nombre LIKE :nombre")
                 .setParameter("nombre", "%" + nombre + "%")
                 .getResultList();
     }

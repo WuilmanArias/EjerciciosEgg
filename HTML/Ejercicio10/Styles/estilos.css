@@ -1,0 +1,59 @@
+h1{
+    color: darkolivegreen;
+}
+
+h3{
+    color: blue;
+}
+
+.span_1 {
+    color: red;
+}
+
+.span_2 {
+    color:blue;
+}
+
+.span_3{
+    color: gold;
+}
+
+.span_4{
+    color: violet;
+}
+
+.span_5{
+    color: lawngreen;
+}
+
+
+
+div{
+    color: forestgreen;
+}
+
+table tr td{
+    border: 1px solid black;
+    text-align: center;
+}
+
+.colum_1{
+    color: gold;
+    
+}
+
+.colum_2{
+    color: red;
+}
+
+.fila_1{
+    color: gold;
+}
+
+.fila_2{
+    color: red;
+}
+
+.celda{
+    color: forestgreen;
+}

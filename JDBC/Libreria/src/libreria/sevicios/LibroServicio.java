@@ -61,8 +61,8 @@ public class LibroServicio {
             libro.setAlta(alta);
             AutorDAO autDao = new AutorDAO();
             EditorialDAO ediDao = new EditorialDAO();
-            autor=autDao.buscarPorId(autorAux);
-            editorial= ediDao.buscarPorId(editorialAux);
+            autor = autDao.buscarPorId(autorAux);
+            editorial = ediDao.buscarPorId(editorialAux);
             libro.setAutor(autor);
             libro.setEditorial(editorial);
         } else {
@@ -81,15 +81,15 @@ public class LibroServicio {
     }
 
     public Libro buscarPorIsbn(String isbn) throws Exception {
-        if (libroDAO.buscarPorId(isbn)==null) {
+        if (libroDAO.buscarPorId(isbn) == null) {
             throw new Exception("El libro no existe");
         }
-            return libroDAO.buscarPorId(isbn);
-        
+        return libroDAO.buscarPorId(isbn);
+
     }
-    
+
     public void listarPorTitulo(String titulo) {
-        List<Libro> libros=libroDAO.listarPorTitulo(titulo);
+        List<Libro> libros = libroDAO.listarPorTitulo(titulo);
         //Libro{id=551, titulo=El Principito, anio=2, ejemplares=1, ejemplaresPrestados=0, ejemplaresRestantes=1, 
         //alta=true, autor=Autor{id=101, nombre=Luis Leal, alta=true}, 
         //editorial=Editoreal{id=401, nombre=Santa Monica, alta=true}}
@@ -99,24 +99,29 @@ public class LibroServicio {
             System.out.println("Titulo: " + aux.getTitulo());
             System.out.println("Año: " + aux.getAnio());
             System.out.println("Ejemplares: " + aux.getEjemplares());
-            System.out.println("Ejemplares Prestados: " + aux.getEjemplaresPrestados() );
+            System.out.println("Ejemplares Prestados: " + aux.getEjemplaresPrestados());
             System.out.println("Ejemplares Restantes: " + aux.getEjemplaresRestantes());
             System.out.println("Autor: " + aux.getAutor().getNombre());
             System.out.println("Editorial: " + aux.getEditorial().getNombre());
             System.out.println("************************************************");
             System.out.println(" ");
         }
-        
+
     }
-    
-    public void listarPorNombreDeAutor(String nombre){
-        List<Libro> libros=libroDAO.listarPorNombreDeAutor(nombre);
-        
-        for (Libro aux : libros) {
-            System.out.println(aux);
+
+    public void listarPorNombreDeAutor(String nombre) throws Exception {
+        AutorServicio autor= new AutorServicio();
+        if ( autor.listarPorNombre(nombre)!= null) {
+            List<Libro> libros = libroDAO.listarPorNombreDeAutor(nombre);
+            for (Libro aux : libros) {
+                System.out.println(aux);
+            }
+        }else{
+            throw new Exception("El autor No existe");
         }
+            
     }
-    
+
     private void validarUsuarioNull(Libro u) throws Exception {
         if (u == null) {
             throw new Exception("No existe ese usuario");
