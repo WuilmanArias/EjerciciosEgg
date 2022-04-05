@@ -1,14 +1,16 @@
 package com.libreria.entidades;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
 
+@Entity
 public class Autor {
     
     @Id
     @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "iiid", strategy = "uuid2")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String nombre;
     private Boolean alta;

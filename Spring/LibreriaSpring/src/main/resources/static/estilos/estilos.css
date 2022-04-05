@@ -1,12 +1,12 @@
-body{
-    background: url(../imagenes/bibioteca.jpg   );
-    background-size: cover;
-    background-attachment: fixed;
-}
+    body{
+        background: url(../imagenes/bibioteca.jpg   );
+        background-size: cover;
+        background-attachment: fixed;
+    }
 
-* {
-    box-sizing: border-box;
-}
+    * {
+        box-sizing: border-box;
+    }
 
 .container{
     margin-top: 30px;
@@ -38,12 +38,17 @@ h1{
 
 input[type="email"],
 input[type="password"],
-input[type="text"] {
+input[type="text"],
+input[type="number"],
+select,
+option{
     font-size: 20px;
     width: 82%;
     padding: 10px;
     border: none;
 }
+
+
 
 .input-contenedor{
     margin-bottom: 15px;
@@ -109,31 +114,3 @@ p{
     font-weight: 400;
     font-family: Verdana, Geneva, Tahoma, sans-serif
 }   
-/*
-.texto {
-    position: relative;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-
-li{
-    list-style-type: none;
-    text-size-adjust: 30px;
-}
-
-#h1_index{
-    position: absolute;
-    top: 60%;
-    left: 2%;
-    height: 100%;
-    color: white;
-    text-align: justify;
-}
-
-form{
-    position: relative;
-    text-align: center; 
-    
-}
-*/
